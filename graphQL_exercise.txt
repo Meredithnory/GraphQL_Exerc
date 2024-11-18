@@ -1,0 +1,171 @@
+BASIC TASKS
+1. List All Films:
+ query Query {
+  allFilms{
+    films{
+      title
+    }
+  }
+}
+2. Fetch a Specific Character: 
+query Query {
+  person(personID:1){
+    name
+  }
+}
+3. Explore Planets:
+query Query {
+  allPlanets(first:5){
+    planets {
+      name
+    }
+  }
+}
+4. Starships Information: 
+query Query {
+  allStarships (first:3) {
+    starships {
+      name
+      model
+    }
+  }
+}
+INTERMEDIATE TASKS
+1. Character and Their Spaceships: 
+query Query {
+  allPeople(first:5) {
+    people{
+      name
+      starshipConnection {
+        starships {
+          name
+        }
+      }
+    }
+  }
+}
+2. Species and Their Languages: 
+query Query {
+ allSpecies(first:5) {
+  species {
+    name
+    language
+  }
+ }
+}
+3. Planets and Their Climates 
+query Query {
+  allPlanets (first:5) {
+    planets {
+      name
+      climates
+    }
+  }
+}
+4. Vehicles and Their Costs 
+query Query {
+ allVehicles (first:3) {
+  vehicles {
+    name
+    costInCredits
+  }
+ }
+}
+ADVANCED TASKS 
+1. Characters in a Specific Film: 
+query Query {
+  film (filmID:1){
+    characterConnection {
+      characters {
+        name
+      }
+    }
+  }
+}
+2. Multi-Film Characters: 
+query Query {
+  allPeople {
+    people  {
+      name
+      filmConnection {
+        totalCount
+      }
+    }
+  }
+}
+3. Aggregate Film Statistics: 
+query Query {
+  allPeople {
+    totalCount
+  }
+}
+COMPLEX TASKS 
+1. Full Character Profiles: 
+query Query {
+  person (personID:1){
+      name
+      homeworld {
+        name
+      }
+      starshipConnection {
+        starships {
+          name
+        }
+      }
+      filmConnection {
+        films {
+          title
+        }
+      }
+  }
+}
+2. Link Characters with Their Planets: 
+query Query {
+  allPeople (first:5){
+    people {
+      name
+      homeworld {
+        population
+      }
+    }
+  }
+}
+3. Vehicles, Their Pilots, and Pilots' Species: 
+query Query {
+  allVehicles(first:3) {
+    vehicles {
+      name 
+      pilotConnection {
+        pilots {
+          name 
+          species {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+4. Films and Their Associated Entities: 
+query Query {
+  allFilms (first:3){
+    films {
+      starshipConnection {
+        starships {
+          name
+        }
+      }
+      planetConnection {
+        planets {
+          name
+        }
+
+      }
+      characterConnection {
+        characters {
+          name
+        }
+      }
+    }
+ }
+}
